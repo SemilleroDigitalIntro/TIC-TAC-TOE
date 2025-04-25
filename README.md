@@ -1,2 +1,3 @@
 # TIC-TAC-TOE
-Desarrollado por Andelson Gonzalez - REACT
+Desarrollado por Andelson Gonzalez - REACT.
+En creación 4/25/2025....
