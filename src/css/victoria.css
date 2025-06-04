@@ -1,0 +1,40 @@
+.victoria{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: url(../assets/gif.gif) rgba(0, 0, 0, 0.39);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    animation:  400ms entradaVictoria ease;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+
+    > h2{
+        font-size: 30px;
+    }
+    > h3{
+        font-size: 24px;
+    }
+}
+
+@keyframes entradaVictoria {
+    0%{
+        transform: scale(0) translateX(-50%) translateY(-50%);
+        opacity: 0;
+        filter: blur(10px); 
+    } 100%{
+        transform: scale(1) translateX(0%) translateY(0%);
+        opacity: 1;
+        filter: blur(0px); 
+    }
+}

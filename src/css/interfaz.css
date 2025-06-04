@@ -1,0 +1,154 @@
+body{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 15px;
+    min-height: 100vh;
+
+    background: url(../assets/fondo_o.jpg) #242424;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Header */
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    z-index: -2;
+
+    > img{
+        width: 200px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    > h1{
+        color: white;
+        font-size: 50px;
+        text-shadow: 0px 0px 15px black;
+    }
+}
+
+main:has(> .contenedor_juego .victoria){
+    .contenedor_juego{
+        z-index: -2;
+    }
+}
+
+/* Juego */
+.contenedor_juego{
+    width: 100%;
+    height: auto;
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, minmax(auto, 1fr));
+    text-shadow: 0px 0px 20px rgb(12, 12, 12);
+
+
+    > .contenedor_fila{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(auto, 1fr));
+        grid-template-rows: 1fr;
+        position: relative;
+
+        > .item_columna{
+            padding: 30px 25px;
+            background: transparent;
+            border: none;
+            color: white;
+
+            > span{
+                font-size: 50px;
+                transform: scale(0);
+                display: inline-block;
+                pointer-events: none;
+                filter: blur(10px);
+                opacity: 0;
+            }
+
+            > .active{
+                animation: 500ms entradaAnimada cubic-bezier(.72,-0.46,.29,1.43);
+                animation-fill-mode: forwards;
+            }
+        }
+
+        > .item_columna:nth-child(1){
+            border-right: 15px solid rgba(0, 0, 0, 0.938);
+        }
+
+        > .item_columna:nth-child(3){
+            border-left: 15px solid black;
+        }
+    }
+
+    > .contenedor_fila:nth-child(2),
+    > .contenedor_fila:nth-child(3){
+        border-top: 15px solid black;
+    }
+}
+
+@keyframes entradaAnimada {
+    0%{
+        transform: scale(0);
+        pointer-events: none;
+        filter: blur(10px);
+        opacity: 0;
+    }60%{
+        transform: scale(1.5);
+        pointer-events: inherit;
+        filter: blur(0px);
+        opacity: 1;
+    } 100%{
+        transform: scale(1);
+        pointer-events: inherit;
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.btn_reiniciar{
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: all 100ms ease;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: rgba(82, 66, 35, 0.555);
+    text-shadow: 0px 0px 20px rgb(12, 12, 12);
+    z-index: 10;
+
+    &:hover{
+        transform: scale(1.050);
+        background: rgba(19, 19, 18, 0.671);
+        cursor: pointer;
+    }
+
+    &:active{
+        transform: scale(0.95);
+    }
+}
